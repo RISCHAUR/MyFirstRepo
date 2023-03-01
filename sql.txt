@@ -1,0 +1,101 @@
+CREATE DATABASE school;
+USE school;
+CREATE TABLE student
+(
+rno INT(3),
+name VARCHAR(15),
+marks FLOAT(5,2)
+);
+CREATE TABLE IF NOT EXISTS student
+(
+rno INT(3),
+name VARCHAR(15),
+marks FLOAT(5,2)
+);
+DESC student;
+ALTER TABLE student
+ADD PRIMARY KEY(rno);
+
+INSERT INTO student(rno,name,marks)
+VALUES(110,"Sam",78.7);
+INSERT INTO student
+VALUES(111,"RISHABH",99.9),
+(112,"ANSHIKA",22.9),
+(113,"AGRAWAL",90.9),
+(114,"GUPTA",19.9),
+(115,"CHUHI",50.9),
+(116,"GUNJAN",99.9),
+(117,"RAHUL",23.4),
+(118,"PARTH",40.0),
+(119,"kHUSHAVHA",50.1);
+
+INSERT INTO student
+VALUES(120,"JOEY",null);
+
+SELECT rno,name,marks
+FROM student
+WHERE rno>115;
+
+Relational : < > <= >= = <>
+LOGICAL : && AND || OR 
+
+SELECT rno,name,marks
+FROM student
+WHERE rno>115 AND marks>50.0;
+
+SELECT rno,name,marks,marks+5 AS "new Marks"
+FROM student;
+// SACLAR COLUMN
+SELECT 10+20;
+
+SELECT rno,name,marks
+FROM student
+WHERE marks IN(78.9,99.9,109.9);
+
+SELECT rno,name,marks
+FROM student
+WHERE rno NOT IN(111,115,120);
+
+SELECT * 
+FROM student
+WHERE marks=NULL;
+
+SELECT 10*NULL FROM DUAL;
+SELECT * 
+FROM student
+WHERE marks IS NULL;
+
+SELECT rno,name,IFNULL(marks,0)+5
+FROM student;
+
+SELECT rno,name,marks
+FROM student
+WHERE rno BETWEEN 110 AND 115;
+
+SELECT rno,name,marks
+FROM student
+WHERE name LIKE 'G%';
+
+ALTER TABLE student
+ADD COLUMN dob DATE;
+
+UPDATE student
+SET dob = '2000-10-09'
+wHERE rno =111;
+
+CREATE TABLE copystudent AS SELECT * FROM student;
+
+CREATE DATABASE xyz;
+USE xyz;
+CREATE TABLE employee
+(
+eid INT(3),
+first_name varchar(15),
+last_name varchar(15),
+address varchar(20),
+city varchar(15)
+);
+
+CREATE TABLE 
+
+
